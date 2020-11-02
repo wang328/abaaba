@@ -28,7 +28,7 @@ def send_regiser_active_email(email, user_name, token):
     message = "<h1>%s,欢迎您注册小破站会员，请单击下面链接进行激活账号：<br></h1> <a href='http://127.0.0.1:8000/user/active/%s/'>http://127.0.0.1:8000/user/active/%s/</a>" % (
         user_name, token, token)
     # 收件人
-    recv = [email, "1142475618@qq.com"]
+    recv = [email]
     send_mail(subject, message, settings.EMAIL_FROM, recv, html_message=message)
 
 
@@ -40,5 +40,5 @@ def send_updata_pwd_email(email, user_name, token):
     message = "<h1>%s,尊敬的小破站会员，您好，请单击下面链接进行修改密码：<br></h1> <a href='http://127.0.0.1:8000/user/updata/%s/'>http://127.0.0.1:8000/user/updata/%s/</a>" % (
         user_name, token, token)
     # 收件人
-    recv = [email, "1142475618@qq.com"]
+    recv = [email]
     send_mail(subject, message, settings.EMAIL_FROM, recv, html_message=message)

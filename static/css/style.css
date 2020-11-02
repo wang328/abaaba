@@ -55,7 +55,7 @@ input[type="submit"], .agileinfo_chat a, .w3ls_footer_grid1_left p a, .w3l_sign_
     font-size: 2.8em;
     color: #212121;
     text-transform: uppercase;
-    background: url(../images/1.jpg) no-repeat 80px 6px;
+    /*background: url(../images/1.jpg) no-repeat 80px 6px;*/
     padding-right: 1.67em;
     font-weight: 900;
     padding-bottom: .3em;
@@ -74,7 +74,7 @@ input[type="submit"], .agileinfo_chat a, .w3ls_footer_grid1_left p a, .w3l_sign_
 .w3_search {
     float: left;
     width: 38%;
-    margin-left: 9em;
+    margin-left: 5em;
     margin-top: .7em;
 }
 
@@ -116,7 +116,7 @@ input[type="submit"], .agileinfo_chat a, .w3ls_footer_grid1_left p a, .w3l_sign_
 
 .w3l_sign_in_register ul li a {
     color: #fff;
-    display: inline-block;
+    /*display: inline-block;*/
     text-transform: uppercase;
     text-decoration: none;
 
@@ -138,10 +138,11 @@ input[type="submit"], .agileinfo_chat a, .w3ls_footer_grid1_left p a, .w3l_sign_
     color: #212121;
     font-size: 1em;
     background: #1bc0ff;
+    /*border:1px solid #5bc0de;*/
 }
 
 .w3l_sign_in_register ul li i, .w3l_sign_in_register ul li:first-child {
-    padding-right: 1em;
+
 }
 
 /*-- //header --*/
@@ -175,6 +176,7 @@ input[type="submit"], .agileinfo_chat a, .w3ls_footer_grid1_left p a, .w3l_sign_
 
 .movies_nav {
     background: #1bc0ff;
+    /*background: #ffb3f8;*/
 }
 
 .navbar-default .navbar-nav > li > a {
@@ -445,7 +447,7 @@ p.fexi_header_para1 a i {
 /*-- //Latest-tv-series --*/
 /*-- footer --*/
 .footer {
-    background: #212121;
+    /*background: #212121;*/
     padding: 4em 0;
 }
 
@@ -494,7 +496,7 @@ p.fexi_header_para1 a i {
 }
 
 .w3ls_footer_grid_right, .w3ls_footer_grid1_right {
-    text-align: right;
+    text-align: center;
 }
 
 .w3ls_footer_grid {
@@ -523,7 +525,7 @@ p.fexi_header_para1 a i {
 }
 
 .w3ls_footer_grid1_right ul li a {
-    color: #fff;
+    color: #999;
     text-decoration: none;
     text-transform: uppercase;
 }

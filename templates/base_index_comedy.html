@@ -74,7 +74,7 @@
 <div class="header">
     <div class="container">
         <div class="w3layouts_logo">
-            <a href="index.html"><h1>One<span>Movies</span></h1></a>
+            <img style="width: 200px" src="{% static 'images/1.jpg' %}">
         </div>
         <div class="w3_search">
             <form action="#" method="post">
@@ -84,11 +84,15 @@
         </div>
         <div class="w3l_sign_in_register">
             <ul class="menu">
-                <li><a href="{% url 'user:login' %}">admin1145555555555555555555</a></li>
-                <li><a href="{% url 'user:register' %}">注册</a></li>
-                <li><a href="#">个人中心</a></li>
-                <li><a href="#">浏览记录</a>
-                </li>
+                {% if context == 0 %}
+                    <li><a href="{% url 'user:login' %}">登录</a></li>
+                    <li><a href="{% url 'user:register' %}">注册</a></li>
+                {% else %}
+                    <li><a href="{% url 'user:userinfo' %}">{{ user_info.username }}</a></li>
+                    <li><a href="{% url 'user:logout' %}">退出</a></li>
+                {% endif %}
+                <li><a href="{% url 'user:userinfo' %}">个人中心</a></li>
+                <li><a href="#">浏览记录</a></li>
             </ul>
         </div>
         <div class="clearfix"></div>
@@ -108,43 +112,43 @@
                 </button>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+            <div  class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
                 <nav>
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.html">首页</a></li>
+                        <li class="active"><a href="{% url 'movies:index' %}">首页</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">电影<b class="caret"></b></a>
                             <ul class="dropdown-menu multi-column columns-3">
                                 <li>
                                     <div class="col-sm-4">
                                         <ul class="multi-column-dropdown">
-                                            <li><a href="../static/genres.html">Action</a></li>
-                                            <li><a href="../static/genres.html">Biography</a></li>
-                                            <li><a href="../static/genres.html">Crime</a></li>
-                                            <li><a href="../static/genres.html">Family</a></li>
-                                            <li><a href="../static/horror.html">Horror</a></li>
-                                            <li><a href="../static/genres.html">Romance</a></li>
-                                            <li><a href="../static/genres.html">Sports</a></li>
-                                            <li><a href="../static/genres.html">War</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Action</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Biography</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Crime</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Family</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Horror</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Romance</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Sports</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">War</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-sm-4">
                                         <ul class="multi-column-dropdown">
-                                            <li><a href="../static/genres.html">Adventure</a></li>
-                                            <li><a href="../static/comedy.html">Comedy</a></li>
-                                            <li><a href="../static/genres.html">Documentary</a></li>
-                                            <li><a href="../static/genres.html">Fantasy</a></li>
-                                            <li><a href="../static/genres.html">Thriller</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Adventure</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Comedy</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Documentary</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Fantasy</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Thriller</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-sm-4">
                                         <ul class="multi-column-dropdown">
-                                            <li><a href="../static/genres.html">Animation</a></li>
-                                            <li><a href="../static/genres.html">Costume</a></li>
-                                            <li><a href="../static/genres.html">Drama</a></li>
-                                            <li><a href="../static/genres.html">History</a></li>
-                                            <li><a href="../static/genres.html">Musical</a></li>
-                                            <li><a href="../static/genres.html">Psychological</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Animation</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Costume</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Drama</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">History</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Musical</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Psychological</a></li>
                                         </ul>
                                     </div>
                                     <div class="clearfix"></div>
@@ -157,33 +161,33 @@
                                 <li>
                                     <div class="col-sm-4">
                                         <ul class="multi-column-dropdown">
-                                            <li><a href="../static/genres.html">Action</a></li>
-                                            <li><a href="../static/genres.html">Biography</a></li>
-                                            <li><a href="../static/genres.html">Crime</a></li>
-                                            <li><a href="../static/genres.html">Family</a></li>
-                                            <li><a href="../static/horror.html">Horror</a></li>
-                                            <li><a href="../static/genres.html">Romance</a></li>
-                                            <li><a href="../static/genres.html">Sports</a></li>
-                                            <li><a href="../static/genres.html">War</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Action</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Biography</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Crime</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Family</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Horror</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Romance</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Sports</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">War</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-sm-4">
                                         <ul class="multi-column-dropdown">
-                                            <li><a href="../static/genres.html">Adventure</a></li>
-                                            <li><a href="../static/comedy.html">Comedy</a></li>
-                                            <li><a href="../static/genres.html">Documentary</a></li>
-                                            <li><a href="../static/genres.html">Fantasy</a></li>
-                                            <li><a href="../static/genres.html">Thriller</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Adventure</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Comedy</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Documentary</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Fantasy</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Thriller</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-sm-4">
                                         <ul class="multi-column-dropdown">
-                                            <li><a href="../static/genres.html">Animation</a></li>
-                                            <li><a href="../static/genres.html">Costume</a></li>
-                                            <li><a href="../static/genres.html">Drama</a></li>
-                                            <li><a href="../static/genres.html">History</a></li>
-                                            <li><a href="../static/genres.html">Musical</a></li>
-                                            <li><a href="../static/genres.html">Psychological</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Animation</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Costume</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Drama</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">History</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Musical</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Psychological</a></li>
                                         </ul>
                                     </div>
                                     <div class="clearfix"></div>
@@ -196,33 +200,33 @@
                                 <li>
                                     <div class="col-sm-4">
                                         <ul class="multi-column-dropdown">
-                                            <li><a href="../static/genres.html">Action</a></li>
-                                            <li><a href="../static/genres.html">Biography</a></li>
-                                            <li><a href="../static/genres.html">Crime</a></li>
-                                            <li><a href="../static/genres.html">Family</a></li>
-                                            <li><a href="../static/horror.html">Horror</a></li>
-                                            <li><a href="../static/genres.html">Romance</a></li>
-                                            <li><a href="../static/genres.html">Sports</a></li>
-                                            <li><a href="../static/genres.html">War</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Action</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Biography</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Crime</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Family</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Horror</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Romance</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Sports</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">War</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-sm-4">
                                         <ul class="multi-column-dropdown">
-                                            <li><a href="../static/genres.html">Adventure</a></li>
-                                            <li><a href="../static/comedy.html">Comedy</a></li>
-                                            <li><a href="../static/genres.html">Documentary</a></li>
-                                            <li><a href="../static/genres.html">Fantasy</a></li>
-                                            <li><a href="../static/genres.html">Thriller</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Adventure</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Comedy</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Documentary</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Fantasy</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Thriller</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-sm-4">
                                         <ul class="multi-column-dropdown">
-                                            <li><a href="../static/genres.html">Animation</a></li>
-                                            <li><a href="../static/genres.html">Costume</a></li>
-                                            <li><a href="../static/genres.html">Drama</a></li>
-                                            <li><a href="../static/genres.html">History</a></li>
-                                            <li><a href="../static/genres.html">Musical</a></li>
-                                            <li><a href="../static/genres.html">Psychological</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Animation</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Costume</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Drama</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">History</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Musical</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Psychological</a></li>
                                         </ul>
                                     </div>
                                     <div class="clearfix"></div>
@@ -237,26 +241,33 @@
                                 <li>
                                     <div class="col-sm-4">
                                         <ul class="multi-column-dropdown">
-                                            <li><a href="../static/genres.html">Asia</a></li>
-                                            <li><a href="../static/genres.html">France</a></li>
-                                            <li><a href="../static/genres.html">Taiwan</a></li>
-                                            <li><a href="../static/genres.html">United States</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Action</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Biography</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Crime</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Family</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Horror</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Romance</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Sports</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">War</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-sm-4">
                                         <ul class="multi-column-dropdown">
-                                            <li><a href="../static/genres.html">China</a></li>
-                                            <li><a href="../static/genres.html">HongCong</a></li>
-                                            <li><a href="../static/genres.html">Japan</a></li>
-                                            <li><a href="../static/genres.html">Thailand</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Adventure</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Comedy</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Documentary</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Fantasy</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Thriller</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-sm-4">
                                         <ul class="multi-column-dropdown">
-                                            <li><a href="../static/genres.html">Euro</a></li>
-                                            <li><a href="../static/genres.html">India</a></li>
-                                            <li><a href="../static/genres.html">Korea</a></li>
-                                            <li><a href="../static/genres.html">United Kingdom</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Animation</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Costume</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Drama</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">History</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Musical</a></li>
+                                            <li><a href="{% url 'movies:comedy' %}">Psychological</a></li>
                                         </ul>
                                     </div>
                                     <div class="clearfix"></div>
@@ -274,7 +285,7 @@
 <!-- //nav -->
 {% block body %}{% endblock body %}
 <!-- footer -->
-<div class="footer">
+<div style="background-image: url('{% static 'images/bgimage.jpg' %}');" class="footer">
     <div class="container">
         <div class="w3ls_footer_grid">
             <div class="col-md-6 w3ls_footer_grid_left">
@@ -289,7 +300,7 @@
                 </div>
             </div>
             <div class="col-md-6 w3ls_footer_grid_right">
-                <a href="index.html"><h2>One<span>Movies</span></h2></a>
+                <img style="height: 100px;" src="{% static 'images/1.jpg' %}">
             </div>
             <div class="clearfix"></div>
         </div>
@@ -311,7 +322,7 @@
                     <a href="../static/genres.html">Adventure</a>
                 </li>
                 <li>
-                    <a href="../static/comedy.html">Comedy</a>
+                    <a href="comedy.html">Comedy</a>
                 </li>
                 <li>
                     <a href="../static/icons.html">Icons</a>
@@ -361,3 +372,11 @@
 <!-- //here ends scrolling icon -->
 </body>
 </html>
+
+
+
+
+
+
+
+

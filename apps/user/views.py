@@ -40,6 +40,9 @@ class RegisterView(View):
             return render(request, "register.html", {"msg": "两次密码输入不一致"})
         if allow != "on":
             return render(request, "register.html", {"msg": "请勾选协议"})
+        # 限制用户名长度
+        if len(username) > 8:
+            return render(request, "register.html", {"msg": "用户名过长"})
         # 4. 校验用户名是否重复
         try:
             user = User.objects.get(username=username)
@@ -98,6 +101,8 @@ class LoginView(View):
     def get(self, request):
         """  登录功能  """
         # 先判断用户以前有没有记住过用户名
+
+
         if "username" in request.COOKIES:
             # 表示以前记住过用户名了
             username = request.COOKIES.get("username")
@@ -145,6 +150,13 @@ class LoginView(View):
             # 用户名和密码是不匹配的
             return render(request, "login.html", {"msg": "用户名或密码不正确"})
         # 4. 返回应答  应答已在上面的操作中输出
+
+class LogoutView(View):
+    '''退出登录'''
+
+    def get(self, request):
+        logout(request)
+        return redirect(reverse("movies:index"))
 
 class ForgetPwdView(View):
     def get(self,request):
@@ -207,3 +219,20 @@ class UpdataPwdView(View):
 class UpdataSuccView(View):
     def get(self,request):
         return render(request,"password_3.html")
+
+
+class UserInfoView(View):
+    def get(self, request):
+        # 判断用户有没有登陆
+        user = request.user
+        # print(user)
+
+        context = 0
+        user_info = None
+
+        # 检验用户名是否存在
+        if user.is_authenticated():
+            context = 1
+            user_info = User.objects.get(username=user)
+
+        return render(request, 'user_center_info.html', {"context": context, "user_info": user_info})

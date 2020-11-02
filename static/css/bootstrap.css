@@ -6281,8 +6281,9 @@ button.close {
     bottom: 20px;
   }
 }
-.clearfix:before,
-.clearfix:after,
+.clearfix:before,.clearfix:after{content:"";display:table}
+.clearfix:after{clear:both;}
+.clearfix{zoom:1}
 .dl-horizontal dd:before,
 .dl-horizontal dd:after,
 .container:before,
@@ -6314,7 +6315,9 @@ button.close {
   display: table;
   content: " ";
 }
-.clearfix:after,
+.clearfix:before,.clearfix:after{content:"";display:table}
+.clearfix:after{clear:both;}
+.clearfix{zoom:1}
 .dl-horizontal dd:after,
 .container:after,
 .container-fluid:after,

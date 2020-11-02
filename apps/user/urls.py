@@ -8,4 +8,6 @@ urlpatterns = [
     url(r"^forgetpwd/", views.ForgetPwdView.as_view(), name="forgetpwd"),  # 忘记密码
     url(r'^updata/(?P<token>.*)/', views.UpdataPwdView.as_view(), name='updata'),  # 修改密码
     url(r"^updatasucc/", views.UpdataSuccView.as_view(), name='updatasucc'),  # 修改密码成功
+    url(r'^logout/', views.LogoutView.as_view(), name="logout"),  # 退出登录
+    url(r'^userinfo/', views.UserInfoView.as_view(), name="userinfo"), # 用户中心
 ]
